@@ -1,0 +1,19 @@
+name: Self Hosted Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Runner
+        run: hostname
+
+      - name: Test Message
+        run: echo "Self Hosted Runner Working Successfully"
