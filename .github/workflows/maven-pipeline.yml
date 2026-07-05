@@ -39,7 +39,9 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Tag Docker Image
-        run: docker tag maven-project:latest ${{ secrets.DOCKER_USERNAME }}/maven-project:latest
+        shell: powershell
+        run: docker tag maven-project:latest "${{ secrets.DOCKER_USERNAME }}/maven-project:latest"
 
       - name: Push Docker Image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/maven-project:latest
+        shell: powershell
+        run: docker push "${{ secrets.DOCKER_USERNAME }}/maven-project:latest"
